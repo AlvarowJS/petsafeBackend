@@ -1,6 +1,6 @@
 const userController = require('./users.controller')
 
-const getAll = () => {
+const getAll = (req, res) => {
     const data = userController.getAllUsers()
     res.status(200).json({ items: data.length, users: data })
 }
@@ -44,7 +44,7 @@ const register = (req, res) => {
     }
     else{
         const response = userController.createUser(data)
-        return res.status(201).json({message: `User created succefully with id: ${resposne.id}`, user: response})
+        return res.status(201).json({message: `User created succefully with id: ${response.id}`, user: response})
     }
 }
 
