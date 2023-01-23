@@ -7,7 +7,7 @@ const hashPassword = (plainPassword) => {
 
 // hashed = ya se encripto
 const comparePassword = (plainPassword, hashedPassword) => {
-    return bcrypt.compareSync(plainPassword, hashPassword)
+    return bcrypt.compareSync(plainPassword, hashedPassword)
 }
 
 module.exports = {

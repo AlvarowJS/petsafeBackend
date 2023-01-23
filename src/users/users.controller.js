@@ -45,7 +45,8 @@ const editUser = (id, data) => {
             nombre_albergue: data.nombre_albergue,
             nombre_representante: data.nombre_representante,
             email: data.email,
-            password: hashPassword(data.password),
+            // password: hashPassword(data.password),
+            password: userDB[index].password,
             pagina_fb: data.pagina_fb,
             celular: data.celular,
             rol: data.rol,
@@ -65,15 +66,21 @@ const deleteUser = (id) => {
         return true
     }else{
         return false
-    }
-    
+    }    
 }
+
+const getUserByEmail = (email) => {
+    const data = userDB.filter(item => item.email === email) 
+    return data.length ? data[0] : null
+}
+
 
 module.exports = {
     createUser,
     getUserById,
     getAllUsers,
     editUser,
-    deleteUser
+    deleteUser,
+    getUserByEmail
 
 }
